@@ -51,10 +51,12 @@ function App() {
 	});
 
 	useEffect(() => {
+		let phi = 0;
+
 		const globe = createGlobe(canvasRef.current as HTMLCanvasElement, {
 			devicePixelRatio: 2,
-			width: 400 * 2,
-			height: 400 * 2,
+			width: 600 * 2,
+			height: 600 * 2,
 			phi: 0,
 			theta: 0,
 			dark: 1.0,
@@ -75,6 +77,10 @@ function App() {
 
 				// Get the current positions from our map
 				state.markers = [...positions.current.values()];
+
+				// Rotate the globe
+				state.phi = phi;
+				phi += 0.005;
 			},
 		});
 
@@ -97,7 +103,7 @@ function App() {
 			{/* The canvas where we'll render the globe */}
 			<canvas
 				ref={canvasRef as LegacyRef<HTMLCanvasElement>}
-				style={{ width: 400, height: 400, maxWidth: "100%", aspectRatio: 1 }}
+				style={{ width: 600, height: 600, maxWidth: "100%", aspectRatio: 1 }}
 			/>
 		</div>
 	);
