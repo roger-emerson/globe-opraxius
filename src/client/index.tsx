@@ -141,11 +141,11 @@ function App() {
 						{/* Arc path hugging the globe's circumference, ~10px from edge */}
 						<path
 							id="textArc"
-							d="M 60,400 A 340,340 0 0,1 740,400"
+							d="M 55,400 A 345,345 0 0,1 745,400"
 							fill="none"
 						/>
 					</defs>
-					<text fill="white" fontSize="36" fontWeight="600" letterSpacing="10">
+					<text fill="white" fontSize="43" fontWeight="600" letterSpacing="12">
 						<textPath href="#textArc" startOffset="50%" textAnchor="middle">
 							OPRAXIUS
 						</textPath>
