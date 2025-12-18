@@ -91,7 +91,35 @@ function App() {
 
 	return (
 		<div className="App">
-			<h1>Opraxius</h1>
+			{/* Globe container with curved title */}
+			<div className="globe-container">
+				{/* Curved text arc above the globe */}
+				<svg
+					className="curved-title"
+					viewBox="0 0 500 150"
+					xmlns="http://www.w3.org/2000/svg"
+				>
+					<defs>
+						<path
+							id="textArc"
+							d="M 50,140 Q 250,0 450,140"
+							fill="none"
+						/>
+					</defs>
+					<text fill="white" fontSize="42" fontWeight="600" letterSpacing="8">
+						<textPath href="#textArc" startOffset="50%" textAnchor="middle">
+							OPRAXIUS
+						</textPath>
+					</text>
+				</svg>
+
+				{/* The canvas where we'll render the globe */}
+				<canvas
+					ref={canvasRef as LegacyRef<HTMLCanvasElement>}
+					style={{ width: 800, height: 800, maxWidth: "100%", aspectRatio: 1 }}
+				/>
+			</div>
+
 			{counter !== 0 ? (
 				<p>
 					<b>{counter}</b> {counter === 1 ? "person" : "people"} connected.
@@ -99,12 +127,6 @@ function App() {
 			) : (
 				<p>&nbsp;</p>
 			)}
-
-			{/* The canvas where we'll render the globe */}
-			<canvas
-				ref={canvasRef as LegacyRef<HTMLCanvasElement>}
-				style={{ width: 800, height: 800, maxWidth: "100%", aspectRatio: 1 }}
-			/>
 		</div>
 	);
 }

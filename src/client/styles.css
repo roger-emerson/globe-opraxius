@@ -48,3 +48,16 @@ a {
 	text-underline-offset: 3px;
 	text-decoration-color: #555;
 }
+
+/* Globe container with curved title */
+.globe-container {
+	position: relative;
+	display: inline-block;
+}
+
+.curved-title {
+	width: 100%;
+	max-width: 800px;
+	height: auto;
+	margin-bottom: -40px;
+}
