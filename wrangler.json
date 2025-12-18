@@ -1,7 +1,7 @@
 {
 	"compatibility_date": "2025-10-08",
 	"main": "src/server/index.ts",
-	"name": "multiplayer-globe-template",
+	"name": "opraxius-globe",
 	"migrations": [
 		{
 			"new_sqlite_classes": ["Globe"],

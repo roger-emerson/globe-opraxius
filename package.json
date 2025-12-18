@@ -1,17 +1,6 @@
 {
-	"name": "multiplayer-globe-template",
-	"description": "Display website visitor locations in real-time using Durable Objects and PartyKit.",
-	"cloudflare": {
-		"label": "Multiplayer Globe App",
-		"products": [
-			"Workers",
-			"Durable Objects"
-		],
-		"categories": [],
-		"preview_icon_url": "https://imagedelivery.net/wSMYJvS3Xw-n339CbDyDIA/f8d14336-3d79-4ff0-7612-93c3ed829600/public",
-		"preview_image_url": "https://imagedelivery.net/wSMYJvS3Xw-n339CbDyDIA/18d0f27e-e1e9-4910-d68e-f330e9456100/preview",
-		"publish": true
-	},
+	"name": "opraxius-globe",
+	"description": "Interactive globe visualization by Opraxius",
 	"dependencies": {
 		"cobe": "0.6.5",
 		"partyserver": "0.0.75",
