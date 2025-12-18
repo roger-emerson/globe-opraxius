@@ -16,6 +16,8 @@ export class Globe extends Server {
 		// First, let's extract the position from the Cloudflare headers
 		const latitude = ctx.request.cf?.latitude as string | undefined;
 		const longitude = ctx.request.cf?.longitude as string | undefined;
+		const city = ctx.request.cf?.city as string | undefined;
+		const country = ctx.request.cf?.country as string | undefined;
 		if (!latitude || !longitude) {
 			console.warn(`Missing position information for connection ${conn.id}`);
 			return;
@@ -24,6 +26,8 @@ export class Globe extends Server {
 			lat: parseFloat(latitude),
 			lng: parseFloat(longitude),
 			id: conn.id,
+			city: city || "Unknown",
+			country: country || "Unknown",
 		};
 		// And save this on the connection's state
 		conn.setState({

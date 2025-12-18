@@ -9,12 +9,19 @@ import usePartySocket from "partysocket/react";
 import type { OutgoingMessage } from "../shared";
 import type { LegacyRef } from "react";
 
+// Player info for display
+type PlayerInfo = {
+	id: string;
+	city: string;
+	country: string;
+};
+
 function App() {
 	// A reference to the canvas element where we'll render the globe
 	const canvasRef = useRef<HTMLCanvasElement>();
-	// The number of markers we're currently displaying
-	const [counter, setCounter] = useState(0);
-	// A map of marker IDs to their positions
+	// List of connected players with their locations
+	const [players, setPlayers] = useState<PlayerInfo[]>([]);
+	// A map of marker IDs to their positions for the globe
 	// Note that we use a ref because the globe's `onRender` callback
 	// is called on every animation frame, and we don't want to re-render
 	// the component on every frame.
@@ -39,13 +46,20 @@ function App() {
 					location: [message.position.lat, message.position.lng],
 					size: 0.09,
 				});
-				// Update the counter
-				setCounter((c) => c + 1);
+				// Add player info to state
+				setPlayers((prev) => [
+					...prev,
+					{
+						id: message.position.id,
+						city: message.position.city || "Unknown",
+						country: message.position.country || "Unknown",
+					},
+				]);
 			} else {
 				// Remove the marker from our map
 				positions.current.delete(message.id);
-				// Update the counter
-				setCounter((c) => c - 1);
+				// Remove player from state
+				setPlayers((prev) => prev.filter((p) => p.id !== message.id));
 			}
 		},
 	});
@@ -91,42 +105,53 @@ function App() {
 
 	return (
 		<div className="App">
-			{/* Globe container with curved title */}
-			<div className="globe-container">
-				{/* Curved text arc above the globe */}
-				<svg
-					className="curved-title"
-					viewBox="0 0 500 150"
-					xmlns="http://www.w3.org/2000/svg"
-				>
-					<defs>
-						<path
-							id="textArc"
-							d="M 50,140 Q 250,0 450,140"
-							fill="none"
-						/>
-					</defs>
-					<text fill="white" fontSize="42" fontWeight="600" letterSpacing="8">
-						<textPath href="#textArc" startOffset="50%" textAnchor="middle">
-							OPRAXIUS
-						</textPath>
-					</text>
-				</svg>
+			{/* Players online panel - top left */}
+			<div className="players-panel">
+				<div className="players-header">
+					<span className="players-count">{players.length}</span>
+					<span className="players-label">Online</span>
+				</div>
+				{players.length > 0 && (
+					<ul className="players-list">
+						{players.map((player) => (
+							<li key={player.id}>
+								<span className="player-dot" />
+								{player.city}, {player.country}
+							</li>
+						))}
+					</ul>
+				)}
+			</div>
 
+			{/* Globe container with curved title overlay */}
+			<div className="globe-container">
 				{/* The canvas where we'll render the globe */}
 				<canvas
 					ref={canvasRef as LegacyRef<HTMLCanvasElement>}
 					style={{ width: 800, height: 800, maxWidth: "100%", aspectRatio: 1 }}
 				/>
-			</div>
 
-			{counter !== 0 ? (
-				<p>
-					<b>{counter}</b> {counter === 1 ? "person" : "people"} connected.
-				</p>
-			) : (
-				<p>&nbsp;</p>
-			)}
+				{/* Curved text arc overlaying the globe - 10px from circumference */}
+				<svg
+					className="curved-title-overlay"
+					viewBox="0 0 800 800"
+					xmlns="http://www.w3.org/2000/svg"
+				>
+					<defs>
+						{/* Arc path hugging the globe's circumference, ~10px from edge */}
+						<path
+							id="textArc"
+							d="M 60,400 A 340,340 0 0,1 740,400"
+							fill="none"
+						/>
+					</defs>
+					<text fill="white" fontSize="36" fontWeight="600" letterSpacing="10">
+						<textPath href="#textArc" startOffset="50%" textAnchor="middle">
+							OPRAXIUS
+						</textPath>
+					</text>
+				</svg>
+			</div>
 		</div>
 	);
 }

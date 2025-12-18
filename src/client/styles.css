@@ -49,15 +49,79 @@ a {
 	text-decoration-color: #555;
 }
 
-/* Globe container with curved title */
+/* Globe container with curved title overlay */
 .globe-container {
 	position: relative;
 	display: inline-block;
 }
 
-.curved-title {
+.curved-title-overlay {
+	position: absolute;
+	top: 0;
+	left: 0;
 	width: 100%;
-	max-width: 800px;
-	height: auto;
-	margin-bottom: -40px;
+	height: 100%;
+	pointer-events: none;
+}
+
+/* Players online panel */
+.players-panel {
+	position: fixed;
+	top: 20px;
+	left: 20px;
+	background: rgba(30, 30, 30, 0.9);
+	border: 1px solid rgba(255, 255, 255, 0.1);
+	border-radius: 12px;
+	padding: 16px 20px;
+	text-align: left;
+	min-width: 180px;
+	backdrop-filter: blur(10px);
+	z-index: 100;
+}
+
+.players-header {
+	display: flex;
+	align-items: center;
+	gap: 8px;
+	margin-bottom: 12px;
+	padding-bottom: 12px;
+	border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.players-count {
+	font-size: 28px;
+	font-weight: 700;
+	color: #22d168;
+}
+
+.players-label {
+	font-size: 14px;
+	color: #888;
+	text-transform: uppercase;
+	letter-spacing: 1px;
+}
+
+.players-list {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+	max-height: 300px;
+	overflow-y: auto;
+}
+
+.players-list li {
+	display: flex;
+	align-items: center;
+	gap: 8px;
+	padding: 6px 0;
+	font-size: 13px;
+	color: #ccc;
+}
+
+.player-dot {
+	width: 8px;
+	height: 8px;
+	background: #22d168;
+	border-radius: 50%;
+	flex-shrink: 0;
 }

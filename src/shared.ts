@@ -5,6 +5,8 @@ export type Position = {
 	lat: number;
 	lng: number;
 	id: string;
+	city?: string;
+	country?: string;
 };
 
 export type OutgoingMessage =
