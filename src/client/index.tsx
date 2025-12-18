@@ -55,13 +55,13 @@ function App() {
 
 		const globe = createGlobe(canvasRef.current as HTMLCanvasElement, {
 			devicePixelRatio: 2,
-			width: 600 * 2,
-			height: 600 * 2,
+			width: 800 * 2,
+			height: 800 * 2,
 			phi: 0,
 			theta: 0,
 			dark: 1.0,
 			diffuse: 0.85,
-			mapSamples: 8300,
+			mapSamples: 9000,
 			mapBrightness: 6.0,
 			mapBaseBrightness: 0,
 			baseColor: [0.235, 0.235, 0.235],
@@ -103,7 +103,7 @@ function App() {
 			{/* The canvas where we'll render the globe */}
 			<canvas
 				ref={canvasRef as LegacyRef<HTMLCanvasElement>}
-				style={{ width: 600, height: 600, maxWidth: "100%", aspectRatio: 1 }}
+				style={{ width: 800, height: 800, maxWidth: "100%", aspectRatio: 1 }}
 			/>
 		</div>
 	);
