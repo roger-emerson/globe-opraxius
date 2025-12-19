@@ -69,13 +69,14 @@ a {
 	position: fixed;
 	top: 20px;
 	left: 20px;
-	background: rgba(30, 30, 30, 0.9);
-	border: 1px solid rgba(255, 255, 255, 0.1);
+	background: rgba(20, 20, 20, 0.95);
+	border: 1px solid rgba(34, 209, 104, 0.3);
 	border-radius: 12px;
 	padding: 16px 20px;
 	text-align: left;
 	min-width: 180px;
 	backdrop-filter: blur(10px);
+	box-shadow: 0 0 20px rgba(34, 209, 104, 0.15);
 	z-index: 100;
 }
 
