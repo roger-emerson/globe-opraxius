@@ -5,11 +5,11 @@
 		"cobe": "0.6.5",
 		"partyserver": "0.0.75",
 		"partysocket": "1.1.6",
-		"react": "^18.0.0",
+		"react": "^19.2.3",
 		"react-dom": "^18.0.0"
 	},
 	"devDependencies": {
-		"@types/react": "^18.0.0",
+		"@types/react": "^19.2.7",
 		"@types/react-dom": "^18.0.0",
 		"esbuild": "0.27.0",
 		"typescript": "5.9.3",
