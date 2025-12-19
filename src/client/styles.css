@@ -90,9 +90,10 @@ a {
 }
 
 .players-count {
-	font-size: 28px;
+	font-size: 32px;
 	font-weight: 700;
 	color: #22d168;
+	text-shadow: 0 0 10px rgba(34, 209, 104, 0.5);
 }
 
 .players-label {
