@@ -5,7 +5,7 @@
 	"workers_dev": false,
 	"routes": [
 		{
-			"pattern": "glow.opraxius.com/*",
+			"pattern": "globe.opraxius.com/*",
 			"zone_name": "opraxius.com"
 		}
 	],
