@@ -6,11 +6,11 @@
 		"partyserver": "0.0.75",
 		"partysocket": "1.1.6",
 		"react": "^18.0.0",
-		"react-dom": "^18.0.0"
+		"react-dom": "^19.2.3"
 	},
 	"devDependencies": {
 		"@types/react": "^18.0.0",
-		"@types/react-dom": "^18.0.0",
+		"@types/react-dom": "^19.2.3",
 		"esbuild": "0.27.0",
 		"typescript": "5.9.3",
 		"wrangler": "4.51.0"
