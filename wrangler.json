@@ -2,6 +2,13 @@
 	"compatibility_date": "2025-10-08",
 	"main": "src/server/index.ts",
 	"name": "opraxius-globe",
+	"workers_dev": false,
+	"routes": [
+		{
+			"pattern": "glow.opraxius.com/*",
+			"zone_name": "opraxius.com"
+		}
+	],
 	"migrations": [
 		{
 			"new_sqlite_classes": ["Globe"],
